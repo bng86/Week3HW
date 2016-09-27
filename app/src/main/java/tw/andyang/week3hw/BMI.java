@@ -4,16 +4,22 @@ import android.support.annotation.VisibleForTesting;
 
 public class BMI {
 
-    private float height, weight;
+    private float height , weight;
     private String gender;
+
+    private float bmi;
+
 
     private static final String MALE = "male";
     private static final String FEMALE = "female";
 
-    public BMI(float height, float weight, String gender) {
+    public BMI(float height , float weight, String gender) {
         this.height = height;
         this.weight = weight;
         this.gender = gender;
+
+        calculate();
+
     }
 
     /**
@@ -25,7 +31,8 @@ public class BMI {
 
         //TODO 使用身高體重計算 BMI
 
-        return 0.0f;
+        return bmi = weight / (height * height);
+
     }
 
     /**
@@ -46,6 +53,32 @@ public class BMI {
 
         String evaluation = "";
 
+        if(gender== MALE){
+            if(bmi<20){
+                evaluation = "過瘦";
+            }else if(bmi>=20 && bmi<=24){
+                evaluation = "理想體重";
+            }else if(bmi>=25 && bmi<=30){
+                evaluation = "超重";
+            }else if(bmi>=30 && bmi<=40){
+                evaluation = "嚴重超重";
+            }else if(bmi>40){
+                evaluation = "極度超重";
+            }
+
+        }else if(gender== FEMALE){
+            if(bmi<18.5){
+                evaluation = "過瘦";
+            }else if(bmi>=18.5 && bmi<=23){
+                evaluation = "理想體重";
+            }else if(bmi>=25 && bmi<=30){
+                evaluation = "超重";
+            }else if(bmi>=30 && bmi<=40){
+                evaluation = "嚴重超重";
+            }else if(bmi>40){
+                evaluation = "極度超重";
+            }
+        }
 
         //TODO 依據 calculate() 計算的 BMI 值給出評價，需要考慮男女
 
@@ -57,6 +90,8 @@ public class BMI {
         this.height = height;
         this.weight = weight;
         this.gender = gender;
+
+        calculate();
     }
 
 }
