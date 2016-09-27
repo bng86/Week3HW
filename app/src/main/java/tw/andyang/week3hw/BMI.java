@@ -25,26 +25,27 @@ public class BMI {
 
         //TODO 使用身高體重計算 BMI
 
-        return 0.0f;
+        return weight / (height * height)*1.0f;
     }
 
-    /**
-     *
-     * 健康狀況	BMI       值
-     *          女性	      男性
-     * 過瘦      18.5以下  20 以下
-     * 理想體重	18.5~23   20~24
-     * 超重	    25～30
-     * 嚴重超重	30～40
-     * 極度超重	40以上
-     */
-
-    /**
-     * @return 回傳健康狀況
-     */
     public String getEvaluation() {
-
         String evaluation = "";
+        if(calculate()<18.5f&& gender=="female"){
+            evaluation = "過瘦";
+        }else if(calculate()<20 && gender=="male"){
+            evaluation = "過瘦";
+        }else if(calculate()>=18.5f && calculate()<25 && gender=="female"){
+            evaluation =  "理想體重";
+        }else if(calculate()>=20 && calculate()<25 && gender=="male"){
+            evaluation = "理想體重";
+        }else if(calculate()>=25&& calculate()<30 ){
+            evaluation = "超重";
+        }else if(calculate()>=30&& calculate()<40 ){
+            evaluation = "嚴重超重";
+        }else if(calculate()>=40 ){
+            evaluation = "極度超重";
+        }
+
 
 
         //TODO 依據 calculate() 計算的 BMI 值給出評價，需要考慮男女
