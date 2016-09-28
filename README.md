@@ -24,7 +24,6 @@
 public float calculate() {
 
     //TODO 使用身高體重計算 BMI
-
     return 0.0f;
 }
 ```
