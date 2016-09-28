@@ -2,6 +2,8 @@ package tw.andyang.week3hw;
 
 import android.support.annotation.VisibleForTesting;
 
+import static java.lang.System.out;
+
 public class BMI {
 
     private float height, weight;
@@ -23,9 +25,9 @@ public class BMI {
      */
     public float calculate() {
 
-        //TODO 使用身高體重計算 BMI
 
-        return 0.0f;
+
+        return  weight/ (height * height)*1.0f;
     }
 
     /**
@@ -46,8 +48,20 @@ public class BMI {
 
         String evaluation = "";
 
-
-        //TODO 依據 calculate() 計算的 BMI 值給出評價，需要考慮男女
+        if(gender==MALE) {
+            if (calculate() < 20) System.out.println(evaluation ="過瘦");
+            else if (calculate() >= 20 && calculate() <= 24) System.out.println(evaluation ="理想體重");
+            else if (calculate() > 24 && calculate() < 31) System.out.println(evaluation ="超重");
+            else if(calculate()>32 && calculate()<41) System.out.println(evaluation ="嚴重超重");
+            else System.out.println(evaluation ="極度超重");
+        }
+        else if(gender==FEMALE){
+            if (calculate() < 18.5) System.out.println(evaluation ="過瘦");
+            else if (calculate() >= 18.5 && calculate() <= 24) System.out.println(evaluation ="理想體重");
+            else if (calculate() > 24 && calculate() < 31) System.out.println(evaluation ="超重");
+            else if(calculate()>32 && calculate()<41) System.out.println(evaluation ="嚴重超重");
+            else  System.out.println(evaluation ="極度超重");
+        }
 
         return evaluation;
     }
