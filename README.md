@@ -43,8 +43,4 @@ public String getEvaluation() {
 
 到 java/tw.andyang.week3hw (test) 下的 BMITest 類別中
 
-![單元測試](images/unittest.png)
-
 點選 getEvaluation() 方法左邊的綠色小箭頭 可看到測試結果出現綠色的 ok 代表通過
-
-![測試通過](images/test_ok.png)
