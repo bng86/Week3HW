@@ -3,17 +3,10 @@ package tw.andyang.week3hw;
 import android.support.annotation.VisibleForTesting;
 
 public class BMI {
+    private person person;
 
-    private float height, weight;
-    private String gender;
-
-    private static final String MALE = "male";
-    private static final String FEMALE = "female";
-
-    public BMI(float height, float weight, String gender) {
-        this.height = height;
-        this.weight = weight;
-        this.gender = gender;
+    public BMI(tw.andyang.week3hw.person person) {
+        this.person = person;
     }
 
     /**
@@ -25,16 +18,16 @@ public class BMI {
 
         //TODO 使用身高體重計算 BMI
 
-        return 0.0f;
+       return person.getWeight()/person.getHeight()*person.getHeight();
     }
 
     /**
      *
      * 健康狀況	BMI       值
-     *          女性	      男性
+     *                    女性	      男性
      * 過瘦      18.5以下  20 以下
-     * 理想體重	18.5~23   20~24
-     * 超重	    25～30
+     * 理想體重 18.5~23   20~24
+     * 超重	         25～30
      * 嚴重超重	30～40
      * 極度超重	40以上
      */
@@ -45,6 +38,39 @@ public class BMI {
     public String getEvaluation() {
 
         String evaluation = "";
+        if(person.getGender().equals(person.MALE)){
+            if(calculate()<20f){
+                evaluation="過瘦";
+            }
+            if(calculate()>20f&&calculate()<24f){
+                evaluation="理想體重";
+            }
+            if(calculate()>25f&&calculate()<30f){
+                evaluation="超重";
+            }
+            if(calculate()>30f&&calculate()<40f){
+                evaluation="嚴重超重";
+            }
+            else{
+                evaluation="極度超重";
+            }
+        }else{
+            if(calculate()<18.5f){
+                evaluation="過瘦";
+            }
+            if(calculate()>18.5f&&calculate()<23f){
+                evaluation="理想體重";
+            }
+            if(calculate()>25f&&calculate()<30f){
+                evaluation="超重";
+            }
+            if(calculate()>30f&&calculate()<40f){
+                evaluation="嚴重超重";
+            }
+            else{
+                evaluation="極度超重";
+            }
+        }
 
 
         //TODO 依據 calculate() 計算的 BMI 值給出評價，需要考慮男女
