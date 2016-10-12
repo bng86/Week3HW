@@ -7,15 +7,7 @@ public class BMI {
     private float height, weight;
     private String gender;
 
-    private static final String MALE = "male";
-    private static final String FEMALE = "female";
-
-    public BMI(float height, float weight, String gender) {
-        this.height = height;
-        this.weight = weight;
-        this.gender = gender;
-    }
-
+    private static s
     /**
      * 計算 BMI
      *
@@ -23,9 +15,11 @@ public class BMI {
      */
     public float calculate() {
 
-        //TODO 使用身高體重計算 BMI
+        float w,h,bmi=0;
+        w/h*h=bmi;
 
-        return 0.0f;
+
+        return bmi;
     }
 
     /**
