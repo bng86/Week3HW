@@ -18,11 +18,14 @@ public class BMITest {
     @Test
     public void getEvaluation() throws Exception {
 
-        BMI bmi = new BMI(1.75f, 56.350002f, "female");
+       // BMI bmi = new BMI(1.75f, 56.350002f, "female");
+        //Assert.assertEquals("過瘦", bmi.getEvaluation());
+
+        BMI bmi = new BMI(1.75f, 60.943752f, "male");
         Assert.assertEquals("過瘦", bmi.getEvaluation());
 
-        bmi.update(1.75f, 60.943752f, "male");
-        Assert.assertEquals("過瘦", bmi.getEvaluation());
+         //bmi.update(1.75f, 60.943752f, "male");
+        //Assert.assertEquals("過瘦", bmi.getEvaluation());
 
         bmi.update(1.75f, 67.375f, "female");
         Assert.assertEquals("理想體重", bmi.getEvaluation());
