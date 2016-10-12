@@ -25,7 +25,7 @@ public class BMI {
 
         //TODO 使用身高體重計算 BMI
 
-        return 0.0f;
+        return weight/(height*height);
     }
 
     /**
@@ -45,9 +45,32 @@ public class BMI {
     public String getEvaluation() {
 
         String evaluation = "";
+        if(gender.equals(MALE)) {
+            if(calculate()<20)
+                evaluation="過瘦";
+            else if(calculate()<24)
+                evaluation="理想體重";
+            else if(calculate()<30)
+                evaluation="超重";
+            else if(calculate()<40)
+                evaluation="嚴重超重";
+            else if(calculate()>40)
+                evaluation="極度超重";
+        }
+        else
+        {
+            if(calculate()<18.5)
+                evaluation="過瘦";
+            else if(calculate()<23)
+                evaluation="理想體重";
+            else if(calculate()<30)
+                evaluation="超重";
+            else if(calculate()<40)
+                evaluation="嚴重超重";
+            else if(calculate()>40)
+                evaluation="極度超重";
 
-
-        //TODO 依據 calculate() 計算的 BMI 值給出評價，需要考慮男女
+        }
 
         return evaluation;
     }
