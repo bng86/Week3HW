@@ -1,6 +1,5 @@
 package tw.andyang.week3hw;
-//import android.icu.util.Output;
-//import android.provider.Settings;
+
 import android.support.annotation.VisibleForTesting;
 
 public class BMI {
